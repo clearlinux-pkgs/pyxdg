@@ -6,10 +6,10 @@
 #
 Name     : pyxdg
 Version  : 0.25
-Release  : 1
+Release  : 2
 URL      : http://pypi.debian.net/pyxdg/pyxdg-0.25.tar.gz
 Source0  : http://pypi.debian.net/pyxdg/pyxdg-0.25.tar.gz
-Source99 : https://pypi.python.org/packages/26/28/ee953bd2c030ae5a9e9a0ff68e5912bd90ee50ae766871151cd2572ca570/pyxdg-0.25.tar.gz.asc
+Source99 : http://pypi.debian.net/pyxdg/pyxdg-0.25.tar.gz.asc
 Summary  : PyXDG contains implementations of freedesktop.org standards in python.
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -19,6 +19,7 @@ BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+Patch1: CVE-2014-1624.patch
 
 %description
 The XDG Package contains:
@@ -35,18 +36,23 @@ python components for the pyxdg package.
 
 %prep
 %setup -q -n pyxdg-0.25
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502839248
+export SOURCE_DATE_EPOCH=1503671265
+export CFLAGS="$CFLAGS -fstack-protector-strong "
+export FCFLAGS="$CFLAGS -fstack-protector-strong "
+export FFLAGS="$CFLAGS -fstack-protector-strong "
+export CXXFLAGS="$CXXFLAGS -fstack-protector-strong "
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1502839248
+export SOURCE_DATE_EPOCH=1503671265
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force

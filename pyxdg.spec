@@ -6,7 +6,7 @@
 #
 Name     : pyxdg
 Version  : 0.25
-Release  : 2
+Release  : 3
 URL      : http://pypi.debian.net/pyxdg/pyxdg-0.25.tar.gz
 Source0  : http://pypi.debian.net/pyxdg/pyxdg-0.25.tar.gz
 Source99 : http://pypi.debian.net/pyxdg/pyxdg-0.25.tar.gz.asc

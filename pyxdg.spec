@@ -4,7 +4,7 @@
 #
 Name     : pyxdg
 Version  : 0.26
-Release  : 19
+Release  : 20
 URL      : http://pypi.debian.net/pyxdg/pyxdg-0.26.tar.gz
 Source0  : http://pypi.debian.net/pyxdg/pyxdg-0.26.tar.gz
 Summary  : PyXDG contains implementations of freedesktop.org standards in python.

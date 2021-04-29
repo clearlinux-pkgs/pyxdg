@@ -4,7 +4,7 @@
 #
 Name     : pyxdg
 Version  : 0.26
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/pyxdg/pyxdg-0.26.tar.gz
 Source0  : http://pypi.debian.net/pyxdg/pyxdg-0.26.tar.gz
 Summary  : PyXDG contains implementations of freedesktop.org standards in python.
@@ -58,10 +58,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
 export SOURCE_DATE_EPOCH=1603402938
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
